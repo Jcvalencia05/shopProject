@@ -1,5 +1,6 @@
 package com.ecommerceProject.shopProject.entity;
 
+import com.ecommerceProject.shopProject.dto.UserDTO;
 import com.ecommerceProject.shopProject.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,7 +9,7 @@ import lombok.Data;
 @Data
 @Table(name="users")
 
-public class User1 {
+public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,11 +22,12 @@ public class User1 {
 
     private String name;
 
-    private UserRole Role;
-
-    @Lob
-    @Column(columnDefinition="longblob")
+    private UserRole userRole;
 
     private byte [] img;
+
+    public UserDTO mapUserToUserDTO() {
+        return new UserDTO(id,email,name,userRole);
+    }
 
 }
