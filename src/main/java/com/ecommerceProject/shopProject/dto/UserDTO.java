@@ -16,6 +16,4 @@ public class UserDTO {
 
     private UserRole userRole;
 
-    public UserDTO(Long id, String email, String name, UserRole userRole) {
-    }
 }

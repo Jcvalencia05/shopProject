@@ -26,8 +26,5 @@ public class User {
 
     private byte [] img;
 
-    public UserDTO mapUserToUserDTO() {
-        return new UserDTO(id,email,name,userRole);
-    }
 
 }

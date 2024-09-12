@@ -20,6 +20,11 @@ public class SingupController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signupUser(@RequestBody SingupDTO singupDTO){
+
+        if (userService.hasUserWithEmail(singupDTO.getEmail())){
+            return new ResponseEntity<>("El usuario ya existe",HttpStatus.NOT_ACCEPTABLE);
+        }
+
         UserDTO createdUser = userService.createUser(singupDTO);
 
         if(createdUser == null) {
