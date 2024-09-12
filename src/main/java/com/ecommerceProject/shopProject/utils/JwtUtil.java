@@ -22,13 +22,15 @@ import java.util.function.Function;
 public class JwtUtil {
     /////////////////////////////// jwt util
 
-    public static final String SECRET = "8A7B6C5D4E3F2G1H0I9J8K7L6M5N4O3P2Q1R0S9T8U7V6W5X4Y3Z2A1B0C";
+    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
 
     public String extractUsername(String token) {
+
         return extractClaim(token, Claims::getSubject);
     }
 
     public Date extractExpiration(String token) {
+
         return extractClaim(token, Claims::getExpiration);
     }
 
@@ -47,6 +49,7 @@ public class JwtUtil {
     }
 
     private Boolean isTokenExpired(String token) {
+
         return extractExpiration(token).before(new Date());
     }
 
